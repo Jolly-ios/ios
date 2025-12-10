@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav-controller">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Order List View Controller-->
+        <scene sceneID="order-list-scene">
+            <objects>
+                <viewController id="order-list-vc" customClass="OrderListViewController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="order-list-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Orders: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="total-orders-label">
+                                <rect key="frame" x="16" y="188" width="361" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="orders-table-view">
+                                <rect key="frame" x="16" y="228" width="361" height="540"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="order-list-vc" id="bg5-6t-oRQ"/>
+                                    <outlet property="delegate" destination="order-list-vc" id="eDh-SH-VTh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="order-list-safe-area"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="order-list-safe-area" firstAttribute="bottom" secondItem="orders-table-view" secondAttribute="bottom" constant="16" id="table-bottom"/>
+                            <constraint firstItem="orders-table-view" firstAttribute="leading" secondItem="order-list-safe-area" secondAttribute="leading" constant="16" id="table-leading"/>
+                            <constraint firstItem="orders-table-view" firstAttribute="top" secondItem="total-orders-label" secondAttribute="bottom" constant="16" id="table-top"/>
+                            <constraint firstItem="order-list-safe-area" firstAttribute="trailing" secondItem="orders-table-view" secondAttribute="trailing" constant="16" id="table-trailing"/>
+                            <constraint firstItem="total-orders-label" firstAttribute="leading" secondItem="order-list-safe-area" secondAttribute="leading" constant="16" id="total-label-leading"/>
+                            <constraint firstItem="total-orders-label" firstAttribute="top" secondItem="order-list-safe-area" secondAttribute="top" constant="16" id="total-label-top"/>
+                            <constraint firstItem="order-list-safe-area" firstAttribute="trailing" secondItem="total-orders-label" secondAttribute="trailing" constant="16" id="total-label-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="order-list-nav-item"/>
+                    <connections>
+                        <outlet property="tableView" destination="orders-table-view" id="table-outlet"/>
+                        <outlet property="totalOrdersLabel" destination="total-orders-label" id="label-outlet"/>
+                        <segue destination="add-order-nav" kind="presentation" identifier="showAddOrder" modalPresentationStyle="formSheet" id="show-add-order-segue"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="order-list-first-responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928" y="5"/>
+        </scene>
+        <!--Add Order-->
+        <scene sceneID="add-order-scene">
+            <objects>
+                <viewController id="add-order-vc" customClass="AddOrderViewController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="add-order-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="name-label">
+                                <rect key="frame" x="32" y="102" width="329" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter order name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="name-textfield">
+                                <rect key="frame" x="32" y="139" width="329" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="price-label">
+                                <rect key="frame" x="32" y="197" width="329" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="price-textfield">
+                                <rect key="frame" x="32" y="234" width="329" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quantity-label">
+                                <rect key="frame" x="32" y="292" width="329" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="quantity-textfield">
+                                <rect key="frame" x="32" y="329" width="329" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="save-button">
+                                <rect key="frame" x="32" y="387" width="329" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="save-button-height"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Save Order">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="add-order-vc" eventType="touchUpInside" id="VwA-Z0-CQZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="add-order-safe-area"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="name-label" firstAttribute="leading" secondItem="add-order-safe-area" secondAttribute="leading" constant="32" id="name-label-leading"/>
+                            <constraint firstItem="name-label" firstAttribute="top" secondItem="add-order-safe-area" secondAttribute="top" constant="32" id="name-label-top"/>
+                            <constraint firstItem="add-order-safe-area" firstAttribute="trailing" secondItem="name-label" secondAttribute="trailing" constant="32" id="name-label-trailing"/>
+                            <constraint firstItem="name-textfield" firstAttribute="leading" secondItem="add-order-safe-area" secondAttribute="leading" constant="32" id="name-textfield-leading"/>
+                            <constraint firstItem="name-textfield" firstAttribute="top" secondItem="name-label" secondAttribute="bottom" constant="16" id="name-textfield-top"/>
+                            <constraint firstItem="add-order-safe-area" firstAttribute="trailing" secondItem="name-textfield" secondAttribute="trailing" constant="32" id="name-textfield-trailing"/>
+                            <constraint firstItem="price-label" firstAttribute="leading" secondItem="add-order-safe-area" secondAttribute="leading" constant="32" id="price-label-leading"/>
+                            <constraint firstItem="price-label" firstAttribute="top" secondItem="name-textfield" secondAttribute="bottom" constant="24" id="price-label-top"/>
+                            <constraint firstItem="add-order-safe-area" firstAttribute="trailing" secondItem="price-label" secondAttribute="trailing" constant="32" id="price-label-trailing"/>
+                            <constraint firstItem="price-textfield" firstAttribute="leading" secondItem="add-order-safe-area" secondAttribute="leading" constant="32" id="price-textfield-leading"/>
+                            <constraint firstItem="price-textfield" firstAttribute="top" secondItem="price-label" secondAttribute="bottom" constant="16" id="price-textfield-top"/>
+                            <constraint firstItem="add-order-safe-area" firstAttribute="trailing" secondItem="price-textfield" secondAttribute="trailing" constant="32" id="price-textfield-trailing"/>
+                            <constraint firstItem="quantity-label" firstAttribute="leading" secondItem="add-order-safe-area" secondAttribute="leading" constant="32" id="quantity-label-leading"/>
+                            <constraint firstItem="quantity-label" firstAttribute="top" secondItem="price-textfield" secondAttribute="bottom" constant="24" id="quantity-label-top"/>
+                            <constraint firstItem="add-order-safe-area" firstAttribute="trailing" secondItem="quantity-label" secondAttribute="trailing" constant="32" id="quantity-label-trailing"/>
+                            <constraint firstItem="quantity-textfield" firstAttribute="leading" secondItem="add-order-safe-area" secondAttribute="leading" constant="32" id="quantity-textfield-leading"/>
+                            <constraint firstItem="quantity-textfield" firstAttribute="top" secondItem="quantity-label" secondAttribute="bottom" constant="16" id="quantity-textfield-top"/>
+                            <constraint firstItem="add-order-safe-area" firstAttribute="trailing" secondItem="quantity-textfield" secondAttribute="trailing" constant="32" id="quantity-textfield-trailing"/>
+                            <constraint firstItem="save-button" firstAttribute="leading" secondItem="add-order-safe-area" secondAttribute="leading" constant="32" id="save-button-leading"/>
+                            <constraint firstItem="save-button" firstAttribute="top" secondItem="quantity-textfield" secondAttribute="bottom" constant="24" id="save-button-top"/>
+                            <constraint firstItem="add-order-safe-area" firstAttribute="trailing" secondItem="save-button" secondAttribute="trailing" constant="32" id="save-button-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Order" id="add-order-nav-item"/>
+                    <connections>
+                        <outlet property="orderNameTextField" destination="name-textfield" id="name-textfield-outlet"/>
+                        <outlet property="priceTextField" destination="price-textfield" id="price-textfield-outlet"/>
+                        <outlet property="quantityTextField" destination="quantity-textfield" id="quantity-textfield-outlet"/>
+                        <outlet property="saveButton" destination="save-button" id="save-button-outlet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="add-order-first-responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928" y="5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="main-nav-scene">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nav-controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="main-nav-bar">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="order-list-vc" kind="relationship" relationship="rootViewController" id="main-nav-root-segue"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="main-nav-first-responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2" y="5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="add-order-nav-scene">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="add-order-nav" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="add-order-nav-bar">
+                        <rect key="frame" x="0.0" y="16" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="add-order-vc" kind="relationship" relationship="rootViewController" id="add-order-nav-root-segue"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="add-order-nav-first-responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928" y="-741"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
