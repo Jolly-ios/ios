@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z1N-4d-YWm">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="AlertPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVp-UW-OCb">
+                                <rect key="frame" x="82.333333333333329" y="404" width="228.33333333333337" height="44"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="see weather cast of today?"/>
+                                <connections>
+                                    <action selector="todayWeatherCastTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvd-ky-OSo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to see weather forecast for upto 20 days?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vln-SR-FeG">
+                                <rect key="frame" x="20" y="202" width="353" height="45.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imk-2f-qRD">
+                                <rect key="frame" x="138.33333333333334" y="267.66666666666669" width="116.66666666666666" height="44"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login to see"/>
+                                <connections>
+                                    <action selector="loginButtonWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BB6-tJ-jby"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vln-SR-FeG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="GXU-YC-f40"/>
+                            <constraint firstItem="Imk-2f-qRD" firstAttribute="top" secondItem="Vln-SR-FeG" secondAttribute="bottom" constant="20" id="NoZ-fK-9Jx"/>
+                            <constraint firstItem="mVp-UW-OCb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rhz-wA-MgB"/>
+                            <constraint firstItem="Imk-2f-qRD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WlK-06-4V2"/>
+                            <constraint firstAttribute="trailing" secondItem="Vln-SR-FeG" secondAttribute="trailing" constant="20" id="oIO-tl-aNO"/>
+                            <constraint firstItem="Vln-SR-FeG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rPv-bG-DDe"/>
+                            <constraint firstItem="mVp-UW-OCb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tJj-tz-uDM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="o1v-hE-UnL"/>
+                    <connections>
+                        <outlet property="loginButton" destination="Imk-2f-qRD" id="OVY-O2-79u"/>
+                        <outlet property="loginDescLabel" destination="Vln-SR-FeG" id="fWZ-Re-Zzn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762.59541984732823" y="38.732394366197184"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yws-KN-Rlr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z1N-4d-YWm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PTU-qL-0Pw">
+                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0H5-ls-tiO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tM0-Jz-nOO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-161.06870229007632" y="38.732394366197184"/>
+        </scene>
+        <!--Today Weather CastVC-->
+        <scene sceneID="9L4-dR-GJO">
+            <objects>
+                <viewController storyboardIdentifier="TodayWeatherCastVC" id="53a-02-YSD" customClass="TodayWeatherCastVC" customModule="AlertPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XSm-ye-EAc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather will be rainy at your current location...!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qO-UY-lmv">
+                                <rect key="frame" x="20" y="168" width="353" height="45.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NuF-me-ZoS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7qO-UY-lmv" firstAttribute="leading" secondItem="NuF-me-ZoS" secondAttribute="leading" constant="20" id="9eB-9J-TzY"/>
+                            <constraint firstItem="NuF-me-ZoS" firstAttribute="trailing" secondItem="7qO-UY-lmv" secondAttribute="trailing" constant="20" id="Cw8-rS-LO4"/>
+                            <constraint firstItem="7qO-UY-lmv" firstAttribute="top" secondItem="NuF-me-ZoS" secondAttribute="top" constant="50" id="R8s-Im-a4D"/>
+                            <constraint firstItem="NuF-me-ZoS" firstAttribute="trailing" secondItem="7qO-UY-lmv" secondAttribute="trailing" constant="20" id="gbN-HP-HiZ"/>
+                            <constraint firstItem="7qO-UY-lmv" firstAttribute="leading" secondItem="NuF-me-ZoS" secondAttribute="leading" constant="20" id="tsK-Jj-Zf0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hSD-aE-PaN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pte-O3-7iw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1543" y="38"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="sM3-gG-x7T">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="32q-PS-QUZ" customClass="LoginVC" customModule="AlertPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CuG-kK-jir">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTE-Ga-5XC">
+                                <rect key="frame" x="50" y="168" width="293" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N4V-d0-zrw">
+                                <rect key="frame" x="50" y="252" width="293" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQh-LZ-uxs">
+                                <rect key="frame" x="121.66666666666669" y="336" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="3no-ya-3KP"/>
+                                    <constraint firstAttribute="height" constant="50" id="9yq-NW-RoW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="32q-PS-QUZ" eventType="touchUpInside" id="PCD-Su-cE2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OEt-MG-xbo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OEt-MG-xbo" firstAttribute="trailing" secondItem="N4V-d0-zrw" secondAttribute="trailing" constant="50" id="AKn-rl-T8M"/>
+                            <constraint firstItem="N4V-d0-zrw" firstAttribute="top" secondItem="OTE-Ga-5XC" secondAttribute="bottom" constant="50" id="G1j-BX-6Gm"/>
+                            <constraint firstItem="OTE-Ga-5XC" firstAttribute="top" secondItem="OEt-MG-xbo" secondAttribute="top" constant="50" id="Nx7-GU-NxI"/>
+                            <constraint firstItem="N4V-d0-zrw" firstAttribute="leading" secondItem="OEt-MG-xbo" secondAttribute="leading" constant="50" id="gjC-7v-jSX"/>
+                            <constraint firstItem="OTE-Ga-5XC" firstAttribute="leading" secondItem="OEt-MG-xbo" secondAttribute="leading" constant="50" id="mps-ef-72R"/>
+                            <constraint firstItem="QQh-LZ-uxs" firstAttribute="centerX" secondItem="CuG-kK-jir" secondAttribute="centerX" id="n3E-KK-IXw"/>
+                            <constraint firstItem="QQh-LZ-uxs" firstAttribute="top" secondItem="N4V-d0-zrw" secondAttribute="bottom" constant="50" id="oSY-6P-hL8"/>
+                            <constraint firstItem="OEt-MG-xbo" firstAttribute="trailing" secondItem="OTE-Ga-5XC" secondAttribute="trailing" constant="50" id="rP4-V6-fKm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="OTE-Ga-5XC" id="BAf-AU-qQ3"/>
+                        <outlet property="passwordField" destination="N4V-d0-zrw" id="Ggd-p9-tEd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdr-jm-OCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1158" y="744"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
